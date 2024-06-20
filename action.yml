@@ -20,7 +20,7 @@ runs:
       run: echo $TOTO
       shell: bash
       env:
-        TOTO: ${{ fromJson(github)}}
+        TOTO: ${{ github.job }}
     - name: Displays vars
       run: echo "${{ fromJson(inputs.variables).ENV_VAR}} - ${{ inputs.secrets.ENV_SECRET}}"
       shell: bash

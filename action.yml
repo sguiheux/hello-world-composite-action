@@ -18,6 +18,7 @@ runs:
   steps:
     - name: Display github context
       run: echo $TOTO
+      shell: bash
       env:
         TOTO: ${{ fromJson(github)}}
     - name: Displays vars

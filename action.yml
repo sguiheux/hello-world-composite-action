@@ -24,14 +24,11 @@ runs:
         echo "${TATA}"
         echo "Steps context:"
         echo "${TITI}"
-        echo "Jobs context:"
-        echo "${TUTU}"
       shell: bash
       env:
         TOTO: ${{ toJson(github) }}
         TATA: ${{ toJson(job) }}
         TITI: ${{ toJson(steps) }}
-        TUTU: ${{ toJson(jobs) }}
     - name: Displays vars
       run: echo "${{ fromJson(inputs.variables).ENV_VAR}} - ${{ inputs.secrets.ENV_SECRET}}"
       shell: bash

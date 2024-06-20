@@ -17,10 +17,21 @@ runs:
   using: "composite"
   steps:
     - name: Display github context
-      run: echo ${{ github.job }}
+      run: |
+        echo "Github context:"
+        echo "${TOTO}"
+        echo "Job Context:"
+        echo "${TATA}"
+        echo "Steps context:"
+        echo "${TITI}"
+        echo "Needs context:"
+        echo "${TUTU}""
       shell: bash
       env:
-        TOTO: ${{ github.job }}
+        TOTO: ${{ toJson(github) }}
+        TATA: ${{ toJson(job) }}
+        TITI: ${{ toJson(steps) }}
+        TUTU: ${{ toJson(needs) }}
     - name: Displays vars
       run: echo "${{ fromJson(inputs.variables).ENV_VAR}} - ${{ inputs.secrets.ENV_SECRET}}"
       shell: bash

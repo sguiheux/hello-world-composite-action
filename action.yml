@@ -31,7 +31,6 @@ runs:
         TOTO: ${{ toJson(github) }}
         TATA: ${{ toJson(job) }}
         TITI: ${{ toJson(steps) }}
-        TUTU: ${{ toJson(needs) }}
     - name: Displays vars
       run: echo "${{ fromJson(inputs.variables).ENV_VAR}} - ${{ inputs.secrets.ENV_SECRET}}"
       shell: bash

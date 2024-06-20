@@ -5,6 +5,10 @@ inputs:
     description: 'Who to greet'
     required: true
     default: 'World'
+  variables:
+    required: true
+  secrets:
+    required: true
 outputs:
   random-number:
     description: "Random number"
@@ -13,7 +17,7 @@ runs:
   using: "composite"
   steps:
     - name: Displays vars
-      run: echo "${{ vars.ENV_VAR}} - ${{ secrets.ENV_SECRET}}"
+      run: echo "${{ inputs.variables.ENV_VAR}} - ${{ inputs.secrets.ENV_SECRET}}"
       shell: bash
     - name: Set Greeting
       run: echo "Hello $INPUT_WHO_TO_GREET."

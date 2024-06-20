@@ -9,6 +9,8 @@ inputs:
     required: true
   secrets:
     required: true
+  event:
+    required: true  
 outputs:
   random-number:
     description: "Random number"
@@ -18,6 +20,7 @@ runs:
   steps:
     - name: Display github context
       run: |
+        echo "${{ inputs.event.after }}"
         echo "Github context:"
         echo "${TOTO}"
         echo "Job Context:"

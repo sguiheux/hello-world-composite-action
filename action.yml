@@ -16,8 +16,12 @@ outputs:
 runs:
   using: "composite"
   steps:
+    - name: Display github context
+      run: echo $TOTO
+      env:
+        TOTO: ${{ fromJson(github)}}
     - name: Displays vars
-      run: echo "${{ inputs.variables.ENV_VAR}} - ${{ inputs.secrets.ENV_SECRET}}"
+      run: echo "${{ fromJson(inputs.variables).ENV_VAR}} - ${{ inputs.secrets.ENV_SECRET}}"
       shell: bash
     - name: Set Greeting
       run: echo "Hello $INPUT_WHO_TO_GREET."

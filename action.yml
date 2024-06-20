@@ -25,7 +25,7 @@ runs:
         echo "Steps context:"
         echo "${TITI}"
         echo "Needs context:"
-        echo "${TUTU}""
+        echo "${TUTU}"
       shell: bash
       env:
         TOTO: ${{ toJson(github) }}

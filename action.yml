@@ -20,7 +20,7 @@ runs:
   steps:
     - name: Display github context
       run: |
-        echo "${{ inputs.event.after }}"
+        echo "${PLOUP}"
         echo "Github context:"
         echo "${TOTO}"
         echo "Job Context:"
@@ -32,6 +32,7 @@ runs:
         TOTO: ${{ toJson(github) }}
         TATA: ${{ toJson(job) }}
         TITI: ${{ toJson(steps) }}
+        PLOUP: ${{ inputs.event.after }}
     - name: Displays vars
       run: echo "${{ fromJson(inputs.variables).ENV_VAR}} - ${{ inputs.secrets.ENV_SECRET}}"
       shell: bash

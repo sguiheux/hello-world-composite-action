@@ -17,7 +17,7 @@ runs:
   using: "composite"
   steps:
     - name: Display github context
-      run: echo $TOTO
+      run: echo ${{ github.job }}
       shell: bash
       env:
         TOTO: ${{ github.job }}

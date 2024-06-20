@@ -12,6 +12,9 @@ outputs:
 runs:
   using: "composite"
   steps:
+    - name: Displays vars
+      run: echo "${{ vars.ENV_VAR}} - ${{ secrets.ENV_SECRET}}"
+      shell: bash
     - name: Set Greeting
       run: echo "Hello $INPUT_WHO_TO_GREET."
       shell: bash
